@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  h1 Furniture Form
+
+  form(action="/furniture/save", method="post")
+    //- Include a hidden input for the furniture ID if editing an existing furniture item
+    if furniture
+      input(type="hidden", name="furnitureId", value=furniture._id)
+
+    label(for="name") Furniture Name:
+    input(type="text", name="name", id="name", value=furniture ? furniture.name : "", required)
+
+    br
+
+    label(for="description") Description:
+    textarea(name="description", id="description", rows="4", required)
+      | #{furniture ? furniture.description : ""}
+
+    br
+
+    label(for="price") Price:
+    input(type="number", name="price", id="price", value=furniture ? furniture.price : "", step="0.01", required)
+
+    br
+
+    label(for="quantity") Quantity:
+    input(type="number", name="quantity", id="quantity", value=furniture ? furniture.quantity : "", min="0", required)
+
+    br
+
+    button(type="submit") Save Furniture
+

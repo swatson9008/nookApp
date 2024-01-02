@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title Delete Category
+
+  body
+    h1 Delete Category
+
+    p Are you sure you want to delete the category "#{category.name}"?
+
+    form(action="/category/delete", method="post")
+      input(type="hidden", name="categoryId", value=category._id)
+
+      button(type="submit") Confirm Delete
+
+    a(href="/categories") Cancel

@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1 Delete Furniture
+
+  p Are you sure you want to delete the furniture item "#{furniture.name}"?
+
+  form(action="/furniture/delete", method="post")
+    input(type="hidden", name="furnitureId", value=furniture._id)
+
+    button(type="submit") Confirm Delete
+
+  a(href="/furniture") Cancel
+

@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title Category Form
+
+  body
+    h1 Category Form
+
+    form(action="/category/save", method="post")
+      if category
+        input(type="hidden", name="categoryId", value=category._id)
+
+      label(for="name") Category Name:
+      input(type="text", name="name", id="name", value=category ? category.name : "", required)
+
+      br
+
+      button(type="submit") Save Category
+
+

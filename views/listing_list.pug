@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title Listing List
+
+  body
+    h1 Listing List
+
+    ul
+      each listing in listings
+        li
+          strong Furniture:
+          a(href=`/furniture/${listing.furniture._id}`) #{listing.furniture.name}
+
+          br
+
+          strong Category:
+          a(href=`/category/${listing.category._id}`) #{listing.category.name}
+
+          br
+
+          strong Available:
+          if listing.available
+            | Yes
+          else
+            | No
+
+          //- Add more details if needed

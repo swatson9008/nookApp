@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  h1 Listing Form
+
+  form(action="/listing/save", method="post")
+    //- Include a hidden input for the listing ID if editing an existing listing
+    if listing
+      input(type="hidden", name="listingId", value=listing._id)
+
+    label(for="furniture") Select Furniture:
+    select(name="furniture", required)
+      each furniture in furnitureList
+        option(value=furniture._id, selected=listing && listing.furniture._id.toString() === furniture._id.toString()) #{furniture.name}
+
+    br
+
+    label(for="category") Select Category:
+    select(name="category", required)
+      each category in categoryList
+        option(value=category._id, selected=listing && listing.category._id.toString() === category._id.toString()) #{category.name}
+
+    br
+
+    label(for="available") Available:
+    input(type="checkbox", name="available", checked=listing && listing.available)
+
+    br
+
+    button(type="submit") Save Listing
+
