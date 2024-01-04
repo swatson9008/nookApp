@@ -1,0 +1,56 @@
+extends layout
+
+block content
+  h1 Delete Listing
+
+  p Are you sure you want to delete the listing?
+
+  form(action="/listing/delete", method="post")
+    input(type="hidden", name="listingId", value=listing._id)
+
+    button(type="submit") Confirm Delete
+
+  a(href="/listings") Cancel
+
+extends layout
+
+block content
+  h1 Delete Listing
+
+  p Are you sure you want to delete the listing?
+
+  form(action="/listing/delete", method="post")
+    input(type="hidden", name="listingId", value=listing._id)
+
+    button(type="submit") Confirm Delete
+
+  a(href="/listings") Cancel
+
+  //- Add styling if needed
+  style.
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+    form {
+      display: inline-block;
+    }
+    button {
+      background-color: #dc3545;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+    }
+    a {
+      display: inline-block;
+      margin-left: 10px;
+      color: #007bff;
+      text-decoration: none;
+    }
